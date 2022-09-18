@@ -1,9 +1,8 @@
 local default_options = {
   backup = false, -- No backup
-  -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 1, -- The height of the command line
-  -- colorcolumn = "99999", -- fixes indentline for now
-  -- completeopt = { "menuone", "noselect" },
+  colorcolumn = "99999", -- fixes indentline for now
+  completeopt = { "menuone", "noselect" },
   conceallevel = 0, -- so that `` is visible in markdown files
   fileencoding = "utf-8", -- the encoding written to a file
   foldmethod = "manual", -- folding, set to "expr" for treesitter based folding
@@ -15,16 +14,16 @@ local default_options = {
   mouse = "a", -- allow the mouse to be used in neovim
   pumheight = 10, -- pop up menu height
   -- showmode = false, -- we don't need to see things like -- INSERT -- anymore
-  --  showtabline = 2, -- always show tabs
+  showtabline = 2, -- always show tabs
   smartcase = true, -- smart case
   smartindent = true, -- make indenting smarter again
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all vertical splits to go to the right of current window
   swapfile = false, -- creates a swapfile
   termguicolors = true, -- set term gui colors (most terminals support this)
---  timeoutlen = 250, -- time to wait for a mapped sequence to complete (in milliseconds)
+  --  timeoutlen = 250, -- time to wait for a mapped sequence to complete (in milliseconds)
   title = true, -- set the title of window to the value of the titlestring
-  titlestring = "%<%F%=%l/%L - nvim", -- what the title of the window will be set to
+  -- titlestring = "%<%F%=%l/%L - nvim", -- what the title of the window will be set to
   undofile = false, -- enable persistent undo
   updatetime = 250, -- faster completion
   writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -35,37 +34,62 @@ local default_options = {
   number = true, -- set numbered lines
   relativenumber = true, -- set relative numbered lines
   numberwidth = 4, -- set number column width
-  gdefault  = true,
+  gdefault  = true, -- Global search/replace by default
   -- signcolumn = "yes:1", -- always show the sign column, otherwise it would shift the text each time
   wrap = false, -- display lines as one long line
   -- shadafile =
   scrolloff = 6, -- minimal number of screen lines to keep above and below the cursor.
   sidescrolloff = 8, -- minimal number of screen chars to keep left and right of the cursor.
   list = true,
--- listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
---  listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
+  -- listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
+  --  listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
   listchars = "tab:▹ ,trail:·,nbsp:⚋",
   wildoptions = "pum",  -- use PopUpMenu in command line
   pumblend = 5,        -- transparency in PopUpMenu
 }
 
+local opt = vim.opt
+local vimcmd = vim.cmd
+
 ---  SETTINGS  ---
- vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
- vim.opt.shortmess:append "I" -- don't show the default intro message
- vim.opt.whichwrap:append "<,>,[,],h,l"
+opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
+opt.shortmess:append "I" -- don't show the default intro message
+opt.whichwrap:append "<,>,[,],h,l"
+-- vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
+-- vim.opt.clipboard = "clipboard" -- standard 
+vim.opt.clipboard = "unnamedplus"
+
+vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+         ["+"] = "win32yank.exe -i --crlf",
+         ["*"] = "win32yank.exe -i --crlf"
+    },
+    paste = {
+        ["+"] = "win32yank.exe -o --lf",
+        ["*"] = "win32yank.exe -o --lf"
+    },
+    cache_enabled = false
+}
 
 if #vim.api.nvim_list_uis() == 0 then
-  vim.opt.shortmess = "" -- try to prevent echom from cutting messages off or prompting
-  vim.opt.more = false -- don't pause listing when screen is filled
-  vim.opt.cmdheight = 9999 -- helps avoiding |hit-enter| prompts.
-  vim.opt.columns = 9999 -- set the widest screen possible
-  vim.opt.swapfile = false -- don't use a swap file
-else
-
-  -- Load all the default options
-  for k, v in pairs(default_options) do
-    vim.opt[k] = v
-  end
---  vim.cmd('colorscheme jellybeans')
-
+  opt.shortmess = "" -- try to prevent echom from cutting messages off or prompting
+  opt.more = false -- don't pause listing when screen is filled
+  opt.cmdheight = 9999 -- helps avoiding |hit-enter| prompts.
+  opt.columns = 9999 -- set the widest screen possible
+  opt.swapfile = false -- don't use a swap file
+  return
 end
+-- Load all the default options
+for k, v in pairs(default_options) do
+  opt[k] = v
+end
+
+-- Colorscheme
+-- vimcmd([[colorscheme apprentice]])
+-- vimcmd([[colorscheme xoria256]])
+vimcmd([[colorscheme moonfly]])
+
+-- Undercurl
+vimcmd([[let &t_Cs = "\e[4:3m"]])
+vimcmd([[let &t_Ce = "\e[4:0m"]])

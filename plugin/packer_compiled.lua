@@ -14,7 +14,7 @@ _G._packer.inside_compile = true
 
 local time
 local profile_info
-local should_profile = true
+local should_profile = false
 if should_profile then
   local hrtime = vim.loop.hrtime
   profile_info = {}
@@ -84,15 +84,15 @@ _G.packer_plugins = {
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["apprentice.nvim"] = {
-    loaded = true,
-    path = "/home/krh/.local/share/nvim/site/pack/packer/start/apprentice.nvim",
-    url = "https://github.com/adisen99/apprentice.nvim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "/home/krh/.local/share/nvim/site/pack/packer/start/cmp-calc",
+    url = "https://github.com/hrsh7th/cmp-calc"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["lush.nvim"] = {
-    loaded = true,
-    path = "/home/krh/.local/share/nvim/site/pack/packer/start/lush.nvim",
-    url = "https://github.com/rktjmp/lush.nvim"
-  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -118,16 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neo-tree.nvim"] = {
-    loaded = true,
-    path = "/home/krh/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/krh/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -172,6 +157,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/krh/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-peekaboo"] = {
+    loaded = true,
+    path = "/home/krh/.local/share/nvim/site/pack/packer/start/vim-peekaboo",
+    url = "https://github.com/junegunn/vim-peekaboo"
   }
 }
 
@@ -212,7 +202,7 @@ if _G._packer.needs_bufread == true then
 end
 _G._packer.needs_bufread = false
 
-if should_profile then save_profiles(1) end
+if should_profile then save_profiles() end
 
 end)
 

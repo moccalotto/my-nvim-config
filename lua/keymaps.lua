@@ -25,21 +25,25 @@ map("i", "<c-o>", "<esc>:tabedit ")
 -- Save ALL files
 map("n", "<c-s>", "<cmd>wa<cr>")
 
+-- Save ALL files
+map("n", "<c-s>", "<cmd>wa<cr>")
 -- Cycle tabs
 map("n", "<c-PageUp>", "<cmd>BufferLineCyclePrev<cr>")
 map("n", "<c-PageDown>", "<cmd>BufferLineCycleNext<cr>")
 
 -- Toggle Terminal
-map("n", "<leader>tt", "<cmd>ToggleTerm<cr>")
-
--- Toggle File Tree
-map("n", "_", "<cmd>Neotree toggle<cr>")
-
--- do not yank with x, just delete one char
-map("n", "x", "_x") 
+map("n", "_", "<cmd>ToggleTerm<cr>")
 
 -- Delete entire word with backspace
 map("n", "<backspace>", "vbd") 
 
 -- Select All
 map("n", "<c-a>", "gg<s-v>G")
+
+
+map("n", "ø", vim.lsp.buf.hover)
+map("n", "Ø", vim.lsp.buf.code_action)
+
+map("n", ",", ":")
+
+-- vim.lsp.buf.add_workspace_folder

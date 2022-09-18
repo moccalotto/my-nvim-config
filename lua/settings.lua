@@ -88,7 +88,8 @@ end
 -- Colorscheme
 -- vimcmd([[colorscheme apprentice]])
 -- vimcmd([[colorscheme xoria256]])
-vimcmd([[colorscheme moonfly]])
+-- vimcmd([[colorscheme moonfly]])
+vimcmd([[colorscheme jellybeans-nvim]])
 
 -- Undercurl
 vimcmd([[let &t_Cs = "\e[4:3m"]])

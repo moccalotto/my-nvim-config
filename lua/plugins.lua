@@ -41,8 +41,10 @@ packer.startup(function(use)
   -- consider junegunn/vim-peekaboo - a plugin that shows you what is in your registers in a large side-split
   use "junegunn/vim-peekaboo"
 
-  use "bluz71/vim-moonfly-colors"
-
+  -- COLORS
+  -- use "bluz71/vim-moonfly-colors"    
+  -- use { "kabouzeid/nvim-jellybeans", requires = "rktjmp/lush.nvim" }
+   use { "metalelf0/jellybeans-nvim", requires = "rktjmp/lush.nvim" }
   ------------------------------
   -- COMPLETION
   ------------------------------

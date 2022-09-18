@@ -27,6 +27,7 @@ map("n", "<c-s>", "<cmd>wa<cr>")
 
 -- Save ALL files
 map("n", "<c-s>", "<cmd>wa<cr>")
+
 -- Cycle tabs
 map("n", "<c-PageUp>", "<cmd>BufferLineCyclePrev<cr>")
 map("n", "<c-PageDown>", "<cmd>BufferLineCycleNext<cr>")
@@ -40,7 +41,7 @@ map("n", "<backspace>", "vbd")
 -- Select All
 map("n", "<c-a>", "gg<s-v>G")
 
-
+-- LSP Actions
 map("n", "ø", vim.lsp.buf.hover)
 map("n", "Ø", vim.lsp.buf.code_action)
 

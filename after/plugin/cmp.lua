@@ -19,8 +19,8 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<S-Down>'] = cmp.mapping.scroll_docs(-4),
-    ['<S-Up>'] = cmp.mapping.scroll_docs(4),
+    ['<S-Down>'] = cmp.mapping.scroll_docs(4),
+    ['<S-Up>'] = cmp.mapping.scroll_docs(-4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -49,5 +49,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = "buffer" },
+    { name = "calc" },
+    { name = 'nvim_lsp_signature_help' },
   },
 })

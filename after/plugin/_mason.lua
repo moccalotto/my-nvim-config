@@ -1,11 +1,13 @@
-local ok, mason = pcall(require, "mason")
-if ok then
-  mason.setup()
-end
-
-local ok, mlp = pcall(require, "mason-lspconfig")
+local ok, mason, mlp
+ok, mason = pcall(require, "mason")
 if not ok then
-  mlp.setup()
+  print "Damn. Canot load mason"
 end
 
+ok, mlp = pcall(require, "mason-lspconfig")
+if not ok then
+  print "Damn. Cannot load mason-lspconfig"
+end
 
+mlp.setup()
+mason.setup()

@@ -41,9 +41,9 @@ local default_options = {
   scrolloff = 6, -- minimal number of screen lines to keep above and below the cursor.
   sidescrolloff = 8, -- minimal number of screen chars to keep left and right of the cursor.
   list = true,
+  listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
   -- listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
-  --  listchars = "eol:↴,nbsp:+,space:⋅,tab:> ,trail:⋅",
-  listchars = "tab:▹ ,trail:·,nbsp:⚋",
+  -- listchars = "tab:▹ ,trail:·,nbsp:⚋",
   wildoptions = "pum",  -- use PopUpMenu in command line
   pumblend = 5,        -- transparency in PopUpMenu
 }
@@ -55,23 +55,6 @@ local vimcmd = vim.cmd
 opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
 opt.shortmess:append "I" -- don't show the default intro message
 opt.whichwrap:append "<,>,[,],h,l"
--- vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
--- vim.opt.clipboard = "clipboard" -- standard 
-vim.opt.clipboard = "unnamedplus"
-
-vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-         ["+"] = "win32yank.exe -i --crlf",
-         ["*"] = "win32yank.exe -i --crlf"
-    },
-    paste = {
-        ["+"] = "win32yank.exe -o --lf",
-        ["*"] = "win32yank.exe -o --lf"
-    },
-    cache_enabled = false
-}
-
 if #vim.api.nvim_list_uis() == 0 then
   opt.shortmess = "" -- try to prevent echom from cutting messages off or prompting
   opt.more = false -- don't pause listing when screen is filled
@@ -86,11 +69,8 @@ for k, v in pairs(default_options) do
 end
 
 -- Colorscheme
--- vimcmd([[colorscheme apprentice]])
--- vimcmd([[colorscheme xoria256]])
--- vimcmd([[colorscheme moonfly]])
-vimcmd([[colorscheme jellybeans-nvim]])
+vimcmd [[colorscheme jellybeans-nvim]]
 
 -- Undercurl
-vimcmd([[let &t_Cs = "\e[4:3m"]])
-vimcmd([[let &t_Ce = "\e[4:0m"]])
+vimcmd [[let &t_Cs = "\e[4:3m"]]
+vimcmd [[let &t_Ce = "\e[4:0m"]]

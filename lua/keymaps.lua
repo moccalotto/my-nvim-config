@@ -29,6 +29,8 @@ map("n", "<c-s>", "<cmd>wa<cr>")
 map("n", "<c-s>", "<cmd>wa<cr>")
 
 -- Cycle tabs
+map("n", "gT", "<cmd>BufferLineCyclePrev<cr>")    -- override internal gt
+map("n", "gt", "<cmd>BufferLineCycleNext<cr>")    -- override internal gT
 map("n", "<c-PageUp>", "<cmd>BufferLineCyclePrev<cr>")
 map("n", "<c-PageDown>", "<cmd>BufferLineCycleNext<cr>")
 

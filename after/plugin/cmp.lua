@@ -41,14 +41,15 @@ cmp.setup({
       end
     end)
   }),
-  -- window = {
-  --   completion = cmp.config.window.bordered(),
-  --   documentation = cmp.config.window.bordered(),
-  -- },
+  window = {
+    -- Only draw window borders if we can manage to color them properly.
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = "buffer" },
+    -- { name = "buffer" },
     { name = "calc" },
     { name = 'nvim_lsp_signature_help' },
   },

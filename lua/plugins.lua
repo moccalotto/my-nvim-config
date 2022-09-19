@@ -14,19 +14,22 @@ packer.startup(function(use)
   use { "wbthomason/packer.nvim" }
 
   use {
-  "nvim-lua/plenary.nvim",                  -- [dependency] Also a lazy loader or something
-  "kyazdani42/nvim-web-devicons",           -- [dependency] Better icons
-  "numToStr/Comment.nvim",                  -- Fast comment/uncomment keyboard shorts
-  'nvim-telescope/telescope.nvim',          -- Searh-window for files, words, tags, help, etc.
-  'akinsho/bufferline.nvim',                -- Fanzy line for all open tabs and buffers
-  "akinsho/toggleterm.nvim",                -- In-window terminal
-  "folke/which-key.nvim",                   -- Keyboard help
-  "junegunn/vim-peekaboo",                  -- Show what's in your registers
-  'nvim-treesitter/nvim-treesitter',        -- IMPORTANT!: Run :TSUpdateSync after install
+    ------------------------------
+    -- MISCELLANEOUS
+    ------------------------------
+    "nvim-lua/plenary.nvim",                -- [dependency] Also a lazy loader or something
+    "kyazdani42/nvim-web-devicons",         -- [dependency] Better icons
+    "numToStr/Comment.nvim",                -- Fast comment/uncomment keyboard shorts
+    'nvim-telescope/telescope.nvim',        -- Searh-window for files, words, tags, help, etc.
+    'akinsho/bufferline.nvim',              -- Fanzy line for all open tabs and buffers
+    "akinsho/toggleterm.nvim",              -- In-window terminal
+    "folke/which-key.nvim",                 -- Keyboard help
+    "junegunn/vim-peekaboo",                -- Show what's in your registers
+    'nvim-treesitter/nvim-treesitter',      -- IMPORTANT!: Run :TSUpdateSync after install
 
-  ------------------------------
-  -- COMPLETION
-  ------------------------------
+    ------------------------------
+    -- COMPLETION
+    ------------------------------
     "williamboman/mason.nvim",              -- Insaller for linters, stylers, TS, etc.
     "williamboman/mason-lspconfig.nvim",    -- Installer for LSP servers
     "neovim/nvim-lspconfig",                -- Config library for most LSP servers
@@ -40,12 +43,12 @@ packer.startup(function(use)
     --      "hrsh7th/cmp-path",
     "jose-elias-alvarez/null-ls.nvim",      -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-  ------------------------
-  -- COLORS
-  ------------------------
-   "rktjmp/lush.nvim",
-  "metalelf0/jellybeans-nvim",
-        -- "bluz71/vim-moonfly-colors",
-  -- "kabouzeid/nvim-jellybeans",
+    ------------------------
+    -- COLORS
+    ------------------------
+    "rktjmp/lush.nvim",
+    "metalelf0/jellybeans-nvim",
+    -- "bluz71/vim-moonfly-colors",
+    -- "kabouzeid/nvim-jellybeans",
   }
 end)

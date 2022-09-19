@@ -18,7 +18,7 @@ require("Comment").setup(
     -- requires mapping.basic = true
     opleader = {
       line = "gc",
-      block = "gbc",
+      block = "gb",
     },
 
     -- requires mapping.extra = true

@@ -1,52 +1,41 @@
 local map = vim.keymap.set
-
 vim.g.mapleader = " " -- space
 vim.g.maplocalleader = ","
 
--- Find files
-map("n", "å", function() require("telescope.builtin").find_files() end)
-
--- Grep
-map("n", "Å", function() require("telescope.builtin").grep_string() end)
-
--- Search help docs
-map("n", "<leader>ht", function() require("telescope.builtin").help_tags() end)
-
--- Search open buffers
-map("n", "-", function() require("telescope.builtin").buffers() end)
-
--- Find all symbols IN THE ENTIRE WORKSPACE
-map( "n", "<leader>ws",  function() require("telescope.builtin").lsp_workspace_symbols() end)
-
--- Open files
-map("n", "<c-o>", ":tabedit ")
-map("i", "<c-o>", "<esc>:tabedit ")
-
--- Save ALL files
-map("n", "<c-s>", "<cmd>wa<cr>")
-
--- Save ALL files
-map("n", "<c-s>", "<cmd>wa<cr>")
-
--- Cycle tabs
-map("n", "gT", "<cmd>BufferLineCyclePrev<cr>")    -- override internal gt
-map("n", "gt", "<cmd>BufferLineCycleNext<cr>")    -- override internal gT
-map("n", "<c-PageUp>", "<cmd>BufferLineCyclePrev<cr>")
-map("n", "<c-PageDown>", "<cmd>BufferLineCycleNext<cr>")
-
--- Toggle Terminal
-map("n", "_", "<cmd>ToggleTerm<cr>")
-
--- Delete entire word with backspace
-map("n", "<backspace>", "vbd") 
-
--- Select All
-map("n", "<c-a>", "gg<s-v>G")
-
--- LSP Actions
-map("n", "ø", vim.lsp.buf.hover)
-map("n", "Ø", vim.lsp.buf.code_action)
-
+-----------------------------
+-- command line shortcut
+-----------------------------
+-- must be mapped this way to work smoothly
 map("n", ",", ":")
 
--- vim.lsp.buf.add_workspace_folder
+local ok, wk = pcall(require, "which-key")
+if not ok then return end
+
+-----------------------------
+-- Which-Key Keymappings
+-----------------------------
+wk.register({
+  ["å"] = { "<cmd>Telescope find_files<cr>", "Find siles by name" },
+  ["Å"] = { "<cmd>Telescope grep_string<cr>", "Find files by content" },
+  ["-"] = { "<cmd>Telescope buffers<cr>", "Search open buffers" },
+  ["<leader>h"] = { "<cmd>Telescope help_tags<cr>", "Find help tags" },
+  ["<leader>t"] = { "<cmd>Trim<cr>", "Trim trailing whitespace from file" },
+  ["<c-s>"]  = { "<cmd>wa<cr>", "Save file" },
+  ["_"]  = { "<cmd>ToggleTerm<br>", "Open a terminal in a floeating window"},
+  ["<backspace>"]  = { "vbd", "Delete word backwards" },
+  ["<c-a>"]  = { "ggVG", "Select all" },
+
+  ---------------------------------------
+  -- Tab / Buffer navigation
+  ---------------------------------------
+  ["gt"] =           { "<cmd>BufferLineCycleNext<cr>", "Next tab/buffer" },
+  ["<c-PageDown>"] = { "<cmd>BufferLineCycleNext<cr>", "Previous tab/buffer" },
+  ["gT"] =           { "<cmd>BufferLineCyclePrev<cr>", "Previous tab/buffer" },
+  ["<c-PageUp>"] =   { "<cmd>BufferLineCyclePrev<cr>", "Next tab/buffer" },
+
+
+  ---------------------------------------
+  -- LSP Keys
+  ---------------------------------------
+  ["<leader>q"] = { "<cmd>bd<cr>", "Close buffer"},
+})

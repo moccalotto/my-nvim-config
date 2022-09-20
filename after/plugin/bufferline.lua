@@ -6,6 +6,7 @@ end
 
 bufferline.setup({
   options = {
-    numbers = "none"
+    numbers = "none",
+    diagnostics = "nvim_lsp",
   },
 })

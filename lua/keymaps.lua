@@ -40,10 +40,8 @@ wk.register({
   -- VIM HARD MODE
   ---------------------------------------
   ["<leader>m"]  = { name = "VIM Hardcore Mode" },
-  ["<leader>mt"] = { "<cmd>call ToggleMode()<cr>", "Toggle Vim 'Hardness' Mode" },
-  ["<leader>me"] = { "<cmd>call Mode_Easy()<cr>", "Toggle Vim 'Hardness' Mode" },
-  ["<leader>mh"] = { "<cmd>call Mode_Hardcore()<cr>", "Toggle Vim 'Hardness' Mode" },
-  ["<leader>mi"] = { "<cmd>call Mode_Insane()<cr>", "Toggle Vim 'Hardness' Mode" },
+  ["<leader>me"] = { "<cmd>EasyMode<cr>", "Enable Easy Mode. Allow all vim keys" },
+  ["<leader>mh"] = { "<cmd>HardMode<cr>", "Enable Hard Mode. Focus on vim awesomeness'" },
 
   ---------------------------------------
   -- LSP Code Completion / navigation

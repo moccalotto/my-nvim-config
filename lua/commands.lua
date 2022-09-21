@@ -6,7 +6,6 @@ local api = vim.api
 
 api.nvim_create_user_command("Trim", [[%s/\s\+$//e]], {})
 
-
 -------------------------
 -- Cursor Line
 -------------------------
@@ -22,3 +21,4 @@ api.nvim_create_autocmd(
   { pattern = "*", command = "set nocursorline", group = cursorGroup }
 )
 ]]
+

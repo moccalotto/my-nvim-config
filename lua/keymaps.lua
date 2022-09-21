@@ -33,11 +33,10 @@ wk.register({
   ---------------------------------------
   -- Tab / Buffer navigation
   ---------------------------------------
-  ["gt"] = { "<cmd>BufferLineCycleNext<cr>", "Next tab/buffer" },
+  ["<c-PageUp>"]   = { "<cmd>BufferLineCyclePrev<cr>", "Next tab/buffer" },
+  ["gt"]           = { "<cmd>BufferLineCycleNext<cr>", "Next tab/buffer" },
   ["<c-PageDown>"] = { "<cmd>BufferLineCycleNext<cr>", "Previous tab/buffer" },
-  ["gT"] = { "<cmd>BufferLineCyclePrev<cr>", "Previous tab/buffer" },
-  ["<c-PageUp>"] = { "<cmd>BufferLineCyclePrev<cr>", "Next tab/buffer" },
-
+  ["gT"]           = { "<cmd>BufferLineCyclePrev<cr>", "Previous tab/buffer" },
 })
 
 wk.register({

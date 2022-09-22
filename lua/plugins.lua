@@ -17,15 +17,16 @@ packer.startup(function(use)
     ------------------------------
     -- MISCELLANEOUS
     ------------------------------
-    "nvim-lua/plenary.nvim",                -- [dependency] Also a lazy loader or something
-    "kyazdani42/nvim-web-devicons",         -- [dependency] Better icons
-    "numToStr/Comment.nvim",                -- Fast comment/uncomment keyboard shorts
-    'nvim-telescope/telescope.nvim',        -- Searh-window for files, words, tags, help, etc.
-    'akinsho/bufferline.nvim',              -- Fanzy line for all open tabs and buffers
-    "akinsho/toggleterm.nvim",              -- In-window terminal
-    "folke/which-key.nvim",                 -- Keyboard help
-    "junegunn/vim-peekaboo",                -- Show what's in your registers
-    'nvim-treesitter/nvim-treesitter',      -- IMPORTANT!: Run :TSUpdateSync after install
+    "nvim-lua/plenary.nvim",                   -- [dependency] Also a lazy loader or something
+    "kyazdani42/nvim-web-devicons",            -- [dependency] Better icons
+    "numToStr/Comment.nvim",                   -- Fast comment/uncomment keyboard shorts
+    'nvim-telescope/telescope.nvim',           -- Searh-window for files, words, tags, help, etc.
+    'nvim-telescope/telescope-ui-select.nvim', -- Replace nvims "choice/select" UI with telescope selector.
+    'akinsho/bufferline.nvim',                 -- Fanzy line for all open tabs and buffers
+    "akinsho/toggleterm.nvim",                 -- In-window terminal
+    "folke/which-key.nvim",                    -- Keyboard help
+    "junegunn/vim-peekaboo",                   -- Show what's in your registers
+    'nvim-treesitter/nvim-treesitter',         -- IMPORTANT!: Run :TSUpdateSync after install
 
     ------------------------------
     -- COMPLETION

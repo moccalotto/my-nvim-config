@@ -1,5 +1,4 @@
-local map = vim.keymap.set;
-local unmap = vim.keymap.del;
+local shame_command = "ISuckDonkeyBalls"
 
 local hardmode_keys = {
   { { "n", "v", "i" }, "<up>" },
@@ -8,25 +7,33 @@ local hardmode_keys = {
   { { "n", "v", "i" }, "<right>" },
   { { "n", "v", }, "<pageup>" },
   { { "n", "v", }, "<pagedown>" },
+  { { "n", "v", }, "<home>" },
+  { { "n", "v", }, "<end>" },
+
   { { "n", "v", }, "h" },
   { { "n", "v", }, "l" },
 }
 
 local EasyMode = function()
   for _, entry in ipairs(hardmode_keys) do
-    unmap(entry[1], entry[2])
+    pcall(function ()  -- Fail silently if we cannot delete the keymapping
+      vim.keymap.del(entry[1], entry[2])
+    end)
   end
 end
 
 local HardMode = function()
   local action = function()
-    print "You suck!. Type :ISuckDonkeyBalls to escape"
+    print("You suck!. Type " .. shame_command .. " to escape to n00b mode")
   end
   for _, entry in ipairs(hardmode_keys) do
-    map(entry[1], entry[2], action)
+    vim.keymap.set(entry[1], entry[2], action)
   end
 end
 
-vim.api.nvim_create_user_command("ISuckDonkeyBalls", EasyMode, {})
-vim.api.nvim_create_user_command("EasyMode", EasyMode, {})
-vim.api.nvim_create_user_command("HardMode", HardMode, {})
+local make_command = vim.api.nvim_create_user_command
+make_command(shame_command, EasyMode, {})
+make_command("EasyMode", EasyMode, {})
+make_command("HardMode", HardMode, {})
+
+HardMode()

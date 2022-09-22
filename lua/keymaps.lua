@@ -69,8 +69,7 @@ wk.register({
 })
 
 
-
 wk.register({
-  ["¤"] = { "<esc>", "Remap" },
+  ["´´"] = { "<esc>", "Remap" },
 }, { mode = "i" }
 )

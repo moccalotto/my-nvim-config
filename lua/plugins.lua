@@ -35,6 +35,7 @@ packer.startup(function(use)
     "folke/which-key.nvim",                    -- Keyboard help
     "junegunn/vim-peekaboo",                   -- Show what's in your registers
     'nvim-treesitter/nvim-treesitter',         -- IMPORTANT!: Run :TSUpdateSync after install
+    "rcarriga/nvim-notify",                    -- Notification popup
 
     ------------------------------
     -- COMPLETION

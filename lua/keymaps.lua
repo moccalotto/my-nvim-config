@@ -1,3 +1,7 @@
+-----------------------------
+-- KEYMAPS
+-----------------------------
+
 vim.g.mapleader = " " -- space
 vim.g.maplocalleader = ","
 
@@ -18,15 +22,15 @@ wk.register({
   ["Å"]           = { "<cmd>Telescope grep_string<cr>", "Find files by content" },
   ["-"]           = { "<cmd>Telescope buffers<cr>", "Search open buffers" },
   ["_"]           = { "<cmd>ToggleTerm<cr>", "Open a terminal in a floeating window" },
-  ["<c-s>"]       = { "<cmd>wa<cr>", "Save file" },
   ["<backspace>"] = { "vbd", "Delete word backwards" },
-  ["<c-a>"]       = { "ggVG", "Select all" },
+  ["<leader>a"]   = { "ggVG", "Select all" },
   ["<leader>h"]   = { "<cmd>Telescope help_tags<cr>", "Find help tags" },
   ["<leader>t"]   = { "<cmd>Trim<cr>", "Trim trailing whitespace from file" },
-  ["<leader>e"]   = { "<cmd>20Vexplore<cr>", "Open File Browser" },
-  ["<leader>q"]   = { "<cmd>bd<cr>", "Close buffer" },
+  ["<leader>e"]   = { "<cmd>20Vexplore<cr>", "Open file browser" },
+  ["<leader>q"]   = { "<cmd>confirm quit<cr>", "Close buffer" },
   ["<leader>Q"]   = { "<cmd>bd!<cr>", "Close buffer without saving" },
   ["<leader>Z"]   = { "<cmd>qa!<cr>", "Close vim without saving!" },
+  ["<leader>w"]   = { "<cmd>w<cr>", "Save current buffer" },
 
   ---------------------------------------
   -- Tab / Buffer navigation
@@ -61,11 +65,11 @@ wk.register({
   ---------------------------------------
   -- LSP Workspace Folders
   ---------------------------------------
-  ["<leader>w"]  = { name = "LSP Workspace Folders" },
-  ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
-  ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
-  ["<leader>wl"] = { vim.lsp.buf.list_workspace_folders, "List workspace folders" },
-  ["<leader>ws"] = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Search symbols in workspace" },
+  ["<leader>l"]  = { name = "LSP Workspace Folders" },
+  ["<leader>la"] = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
+  ["<leader>lr"] = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
+  ["<leader>ll"] = { vim.lsp.buf.list_workspace_folders, "List workspace folders" },
+  ["<leader>ls"] = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Search symbols in workspace" },
 })
 
 

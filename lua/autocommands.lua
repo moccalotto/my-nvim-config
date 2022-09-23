@@ -1,6 +1,17 @@
 local api = vim.api
 local fn = vim.fn
 
+vim.api.nvim_create_autocmd(
+  { "BufWritePost" },
+  {
+    pattern = { "*" },
+    group = api.nvim_create_augroup("NotifySaved", { clear = true }),
+    callback = function()
+      local dir = fn.expand('<afile>')
+      vim.notify(dir, "info", { title = "Buffer saved", })
+    end
+  }
+)
 
 ---------------------------
 -- CREATE DIRECTORIES
@@ -21,6 +32,7 @@ vim.api.nvim_create_autocmd(
 
       if fn.isdirectory(dir) == 0 then
         fn.mkdir(dir, 'p')
+        vim.notify(dir, "info", { title = "Created parent directories", })
       end
     end
   }

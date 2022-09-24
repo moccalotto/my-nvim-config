@@ -25,33 +25,34 @@ packer.startup(function(use)
     ------------------------------
     -- MISCELLANEOUS
     ------------------------------
-    "nvim-lua/plenary.nvim",                   -- [dependency] Also a lazy loader or something
-    "kyazdani42/nvim-web-devicons",            -- [dependency] Better icons
-    "numToStr/Comment.nvim",                   -- Fast comment/uncomment keyboard shorts
+    "nvim-lua/plenary.nvim",                   -- [dependency] Also a lazy loader or something.
+    "kyazdani42/nvim-web-devicons",            -- [dependency] Better icons.
+    "numToStr/Comment.nvim",                   -- Fast comment/uncomment keyboard shorts.
     'nvim-telescope/telescope.nvim',           -- Searh-window for files, words, tags, help, etc.
     'nvim-telescope/telescope-ui-select.nvim', -- Replace nvims "choice/select" UI with telescope selector.
-    -- 'akinsho/bufferline.nvim',                 -- Fanzy line for all open tabs and buffers
-    "akinsho/toggleterm.nvim",                 -- In-window terminal
-    "folke/which-key.nvim",                    -- Keyboard help
-    "junegunn/vim-peekaboo",                   -- Show what's in your registers
-    'nvim-treesitter/nvim-treesitter',         -- IMPORTANT!: Run :TSUpdateSync after install
-    "rcarriga/nvim-notify",                    -- Notification popup
+    -- 'akinsho/bufferline.nvim',                 -- Fanzy line for all open tabs and buffers.
+    "akinsho/toggleterm.nvim",                 -- In-window terminal.
+    "folke/which-key.nvim",                    -- Keyboard help.
+    "junegunn/vim-peekaboo",                   -- Show what's in your registers.
+    'nvim-treesitter/nvim-treesitter',         -- IMPORTANT!: Run :TSUpdateSync after install.
+    "rcarriga/nvim-notify",                    -- Notification popup.
+    "tpope/vim-fugitive",                      -- git integration.
 
     ------------------------------
     -- COMPLETION
     ------------------------------
     "williamboman/mason.nvim",                 -- Insaller for linters, stylers, TS, etc.
-    "williamboman/mason-lspconfig.nvim",       -- Installer for LSP servers
-    "neovim/nvim-lspconfig",                   -- Config library for most LSP servers
-    "hrsh7th/nvim-cmp",                        -- Completion engine (popup window when typing text)
-    "hrsh7th/cmp-nvim-lsp",                    -- Bridge: cmp <-> lsp
-    "hrsh7th/cmp-calc",                        -- Do math when typing numbers (e.g. 77*23 = 1771)
-    "hrsh7th/cmp-nvim-lsp-signature-help",     -- mehod call arg help
-    'L3MON4D3/LuaSnip',                        -- Snippet engine
-    'saadparwaiz1/cmp_luasnip',                -- Bridge: cmp <-> luasnip
+    "williamboman/mason-lspconfig.nvim",       -- Installer for LSP servers.
+    "neovim/nvim-lspconfig",                   -- Config library for most LSP servers.
+    "hrsh7th/nvim-cmp",                        -- Completion engine (popup window when typing text).
+    "hrsh7th/cmp-nvim-lsp",                    -- Bridge: cmp <-> lsp.
+    "hrsh7th/cmp-calc",                        -- Do math when typing numbers (e.g. 77*23 = 1771).
+    "hrsh7th/cmp-nvim-lsp-signature-help",     -- mehod call arg help.
+    'L3MON4D3/LuaSnip',                        -- Snippet engine.
+    'saadparwaiz1/cmp_luasnip',                -- Bridge: cmp <-> luasnip.
     "hrsh7th/cmp-buffer",
     --      "hrsh7th/cmp-path",
-    "jose-elias-alvarez/null-ls.nvim",         -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    "jose-elias-alvarez/null-ls.nvim",         -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
     ------------------------
     -- COLORS

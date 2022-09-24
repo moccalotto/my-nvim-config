@@ -1,11 +1,13 @@
 local api = vim.api
 local fn = vim.fn
+local cmd = vim.api.nvim_create_autocmd
+local group = vim.api.nvim_create_augroup
 
-vim.api.nvim_create_autocmd(
+cmd(
   { "BufWritePost" },
   {
     pattern = { "*" },
-    group = api.nvim_create_augroup("NotifySaved", { clear = true }),
+    group = group("NotifySaved", { clear = true }),
     callback = function()
       local dir = fn.expand('<afile>')
       vim.notify(dir, "info", { title = "Buffer saved", })
@@ -14,27 +16,34 @@ vim.api.nvim_create_autocmd(
 )
 
 ---------------------------
--- CREATE DIRECTORIES
--- when saving files
+-- BEFORE SAVE
+--
+-- trim files
+-- ensure parent dirs exist
 ---------------------------
-vim.api.nvim_create_autocmd(
+cmd(
   { "BufWritePre" },
   {
     pattern = { "*" },
-    group = api.nvim_create_augroup("MkDir", { clear = true }),
+    group = group("MkDir", { clear = true }),
     callback = function()
-      local dir = fn.expand('<afile>:p:h')
+      local krh = require("krh")
+      krh.mk_parent_dirs()
+      krh.trim()
+    end,
+  }
+)
 
-      -- This handles URLs using netrw. See ':help netrw-transparent' for details.
-      if dir:find('%l+://') == 1 then
-        return
-      end
 
-      if fn.isdirectory(dir) == 0 then
-        fn.mkdir(dir, 'p')
-        vim.notify(dir, "info", { title = "Created parent directories", })
-      end
-    end
+cmd(
+  { "BufAdd", "BufNewFile", "VimEnter" },
+  {
+    pattern = { "*" },
+    group = group("AlwaysOpenInTabs", { clear = true }),
+    nested = true,
+    callback = function()
+      vim.cmd [[tab sball]]
+    end,
   }
 )
 

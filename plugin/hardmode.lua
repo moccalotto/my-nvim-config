@@ -1,4 +1,4 @@
-local shame_command = "ISuckDonkeyBalls"
+local recover_command = "HelpMeBackToEasyMode"
 
 local hardmode_keys = {
   { { "n", "v", "i" }, "<up>" },
@@ -24,7 +24,7 @@ end
 
 local HardMode = function()
   local action = function()
-    print("You suck!. Type " .. shame_command .. " to escape to n00b mode")
+    print("HardMode enabled. Type :" .. recover_command .. " to escape to n00b mode")
   end
   for _, entry in ipairs(hardmode_keys) do
     vim.keymap.set(entry[1], entry[2], action)
@@ -32,7 +32,7 @@ local HardMode = function()
 end
 
 local make_command = vim.api.nvim_create_user_command
-make_command(shame_command, EasyMode, {})
+make_command(recover_command, EasyMode, {})
 make_command("EasyMode", EasyMode, {})
 make_command("HardMode", HardMode, {})
 

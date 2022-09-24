@@ -18,6 +18,9 @@ if not ok then return end
 -- Which-Key Keymappings
 -----------------------------
 wk.register({
+  -----------------------------
+  -- Misc
+  -----------------------------
   ["å"]           = { "<cmd>Telescope find_files<cr>", "Find siles by name" },
   ["Å"]           = { "<cmd>Telescope grep_string<cr>", "Find files by content" },
   ["-"]           = { "<cmd>Telescope buffers<cr>", "Search open buffers" },
@@ -27,7 +30,7 @@ wk.register({
   ["<leader>h"]   = { "<cmd>Telescope help_tags<cr>", "Find help tags" },
   ["<leader>t"]   = { "<cmd>Trim<cr>", "Trim trailing whitespace from file" },
   ["<leader>e"]   = { "<cmd>20Vexplore<cr>", "Open file browser" },
-  ["<leader>q"]   = { "<cmd>confirm quit<cr>", "Close buffer" },
+  ["<leader>q"]   = { "<cmd>confirm q<cr>", "Close buffer" },
   ["<leader>Q"]   = { "<cmd>bd!<cr>", "Close buffer without saving" },
   ["<leader>Z"]   = { "<cmd>qa!<cr>", "Close vim without saving!" },
   ["<leader>w"]   = { "<cmd>w<cr>", "Save current buffer" },
@@ -35,10 +38,14 @@ wk.register({
   ---------------------------------------
   -- Tab / Buffer navigation
   ---------------------------------------
-  ["<c-PageUp>"]   = { "<cmd>BufferLineCyclePrev<cr>", "Next tab/buffer" },
-  ["gt"]           = { "<cmd>BufferLineCycleNext<cr>", "Next tab/buffer" },
-  ["<c-PageDown>"] = { "<cmd>BufferLineCycleNext<cr>", "Previous tab/buffer" },
-  ["gT"]           = { "<cmd>BufferLineCyclePrev<cr>", "Previous tab/buffer" },
+  -- ["<c-PageUp>"]   = { "<cmd>BufferLineCyclePrev<cr>", "Next tab/buffer" },
+  -- ["gt"]           = { "<cmd>BufferLineCycleNext<cr>", "Next tab/buffer" },
+  -- ["<c-PageDown>"] = { "<cmd>BufferLineCycleNext<cr>", "Previous tab/buffer" },
+  -- ["gT"]           = { "<cmd>BufferLineCyclePrev<cr>", "Previous tab/buffer" },
+  ["<c-PageUp>"]   = { "gt", "Next tab/buffer" },
+  ["gt"]           = { "gt", "Next tab/buffer" },
+  ["<c-PageDown>"] = { "gT", "Previous tab/buffer" },
+  ["gT"]           = { "gT", "Previous tab/buffer" },
 
   ---------------------------------------
   -- VIM HARD MODE
@@ -75,5 +82,6 @@ wk.register({
 
 wk.register({
   ["´´"] = { "<esc>", "Remap" },
+  ["<s-space>"] = { "<esc>", "Remap" },
 }, { mode = "i" }
 )

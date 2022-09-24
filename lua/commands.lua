@@ -1,8 +1,5 @@
-_G.dump = function(...)
-  print(vim.inspect(...))
-end
+local krh = require("krh")
+local cmd = vim.api.nvim_create_user_command
 
-local api = vim.api
-
-api.nvim_create_user_command("Trim", [[%s/\s\+$//e]], {})
-api.nvim_create_user_command("DumpVim", function() dump(vim) end, {})
+cmd("Trim", krh.trim, {})
+cmd("DumpVim", krh.dump, {})

@@ -36,7 +36,7 @@ cmd(
 
 
 cmd(
-  { "BufAdd", "BufNewFile", "VimEnter" },
+  { "BufAdd", --[[ "BufNewFile",  ]]"VimEnter" },
   {
     pattern = { "*" },
     group = group("AlwaysOpenInTabs", { clear = true }),

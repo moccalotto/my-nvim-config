@@ -49,7 +49,6 @@ local default_options = {
 }
 
 local opt = vim.opt
-local vimcmd = vim.cmd
 
 ---  SETTINGS  ---
 opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
@@ -68,9 +67,14 @@ for k, v in pairs(default_options) do
   opt[k] = v
 end
 
+
+local vimcmd = vim.cmd
 -- Colorscheme
 vimcmd [[colorscheme jellybeans-nvim]]
 
 -- Undercurl
 vimcmd [[let &t_Cs = "\e[4:3m"]]
 vimcmd [[let &t_Ce = "\e[4:0m"]]
+
+vimcmd [[highlight TabLine      ctermbg=242 guibg=#666666 cterm=none gui=none]]
+vimcmd [[highlight TabLineFill  ctermbg=237 guibg=#3a3a3a cterm=none gui=none]]

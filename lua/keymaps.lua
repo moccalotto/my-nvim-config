@@ -33,7 +33,7 @@ wk.register({
   ["<leader>q"]   = { "<cmd>confirm q<cr>", "Close buffer" },
   ["<leader>Q"]   = { "<cmd>bd!<cr>", "Close buffer without saving" },
   ["<leader>Z"]   = { "<cmd>qa!<cr>", "Close vim without saving!" },
-  ["<leader>w"]   = { "<cmd>w<cr>", "Save current buffer" },
+  ["<leader>w"]   = { "<cmd>update<cr>", "Save current buffer" },
 
   ---------------------------------------
   -- Tab / Buffer navigation

@@ -18,6 +18,15 @@ let s:t_Co = exists('&t_Co') && !empty(&t_Co) && &t_Co > 1 ? &t_Co : 1
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#1c1c1c', '#af5f5f', '#5f875f', '#87875f', '#5f87af', '#5f5f87', '#5f8787', '#6c6c6c', '#444444', '#ff8700', '#87af87', '#ffffaf', '#87afd7', '#8787af', '#5fafaf', '#ffffff']
 endif
+
+
+" hi default UfoFoldedFg guifg=Normal.foreground
+" hi default UfoFoldedBg guibg=Folded.background
+hi default link UfoPreviewSbar PmenuSbar
+hi default link UfoPreviewThumb PmenuThumb
+hi default link UfoPreviewWinBar UfoFoldedBg
+hi default link UfoFoldedEllipsis Comment
+
 hi Normal guifg=#bcbcbc guibg=#262626 gui=NONE cterm=NONE
 hi NonText guifg=#585858 guibg=NONE gui=NONE cterm=NONE
 hi EndOfBuffer guifg=#585858 guibg=NONE gui=NONE cterm=NONE

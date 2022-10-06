@@ -35,17 +35,17 @@ cmd(
 )
 
 
-cmd(
-  { "BufAdd", --[[ "BufNewFile",  ]]"VimEnter" },
-  {
-    pattern = { "*" },
-    group = group("AlwaysOpenInTabs", { clear = true }),
-    nested = true,
-    callback = function()
-      vim.cmd [[tab sball]]
-    end,
-  }
-)
+-- cmd(
+--   { "BufAdd", --[[ "BufNewFile",  ]]"VimEnter" },
+--   {
+--     pattern = { "*" },
+--     group = group("AlwaysOpenInTabs", { clear = true }),
+--     nested = true,
+--     callback = function()
+--       vim.cmd [[tab sball]]
+--     end,
+--   }
+-- )
 
 -------------------------
 -- Cursor Line

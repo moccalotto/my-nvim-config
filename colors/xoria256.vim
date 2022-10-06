@@ -134,11 +134,15 @@ hi treeLink       ctermfg=182  guifg=#dfafdf
 " :help sign
 " :help SignColumn
 
-" hi currentLine term=reverse cterm=reverse gui=reverse
-" hi breakPoint  term=NONE    cterm=NONE    gui=NONE
-" hi empty       term=NONE    cterm=NONE    gui=NONE
+ hi currentLine term=reverse cterm=reverse gui=reverse
+ hi breakPoint  term=NONE    cterm=NONE    gui=NONE
+ hi empty       term=NONE    cterm=NONE    gui=NONE
 
 " sign define currentLine linehl=currentLine
 " sign define breakPoint  linehl=breakPoint  text=>>
 " sign define both        linehl=currentLine text=>>
-" sign define empty       linehl=empty
+"
+hi default link UfoPreviewSbar PmenuSbar
+hi default link UfoPreviewThumb PmenuThumb
+hi default link UfoPreviewWinBar UfoFoldedBg
+hi default link UfoFoldedEllipsis Comment

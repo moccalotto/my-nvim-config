@@ -10,10 +10,10 @@ require("Comment").setup(
     sticky  = true, -- keep the curser where it is when inserting comments.
     ignore  = nil,  -- lines to ignore when commenting/uncommenting.
 
-    --[[ toggler = {
+    toggler = {
       line  =  "gcc",
       block =  "gbc",
-    }, ]]
+    },
 
     -- requires mapping.basic = true
     opleader = {

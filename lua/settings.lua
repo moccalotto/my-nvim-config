@@ -6,7 +6,7 @@ local default_options = {
   conceallevel = 0, -- so that `` is visible in markdown files
   fileencoding = "utf-8", -- the encoding written to a file
   foldmethod = "manual", -- folding, set to "expr" for treesitter based folding
-  foldexpr = "", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+  foldexpr = "nvim_treesitter#foldexpr", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
   guifont = "monospace:h17", -- the font used in graphical neovim applications
   -- hidden = true, -- required to keep multiple buffers and open multiple buffers
   hlsearch = true, -- highlight all matches on previous search pattern
@@ -46,6 +46,9 @@ local default_options = {
   -- listchars = "tab:▹ ,trail:·,nbsp:⚋",
   wildoptions = "pum",  -- use PopUpMenu in command line
   pumblend = 5,        -- transparency in PopUpMenu
+  foldlevel = 20,
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()"
 }
 
 local opt = vim.opt
@@ -69,12 +72,11 @@ end
 
 
 local vimcmd = vim.cmd
--- Colorscheme
-vimcmd [[colorscheme jellybeans-nvim]]
 
--- Undercurl
+-- Colorscheme
+-- vimcmd [[colorscheme jellybeans-nvim]]
+vimcmd [[colorscheme apprentice]]
+
+-- -- Undercurl
 vimcmd [[let &t_Cs = "\e[4:3m"]]
 vimcmd [[let &t_Ce = "\e[4:0m"]]
-
-vimcmd [[highlight TabLine      ctermbg=242 guibg=#666666 cterm=none gui=none]]
-vimcmd [[highlight TabLineFill  ctermbg=237 guibg=#3a3a3a cterm=none gui=none]]

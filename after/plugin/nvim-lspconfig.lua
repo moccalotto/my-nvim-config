@@ -54,7 +54,11 @@ lspconfig["pyright"].setup({
 lspconfig["tsserver"].setup({
   on_attach = on_attach,
   flags = lsp_flags,
-
+})
+lspconfig["lemminx"].setup({
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "sbc", },
 })
 
 lspconfig["sumneko_lua"].setup({
